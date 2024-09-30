@@ -9,7 +9,9 @@ namespace ProductManagement.Model
     public class Product
     {
         private string productID;
+
         private string productName;
+
         private int quantity;
         private double price;
         private string origin;
@@ -50,6 +52,7 @@ namespace ProductManagement.Model
             get { return expiryDate; }
             set { expiryDate = value; }
         }
+
         public override string ToString()
         {
             return $"ID: {ProductID}, Name: {ProductName}, Price: {Price}, Origin: {Origin}, Expiry: {ExpiryDate.ToShortDateString()}";

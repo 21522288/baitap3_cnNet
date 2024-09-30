@@ -15,10 +15,11 @@ namespace ProductManagement
         {
             products.Add(product);
         }
-
+        //edit product
         public bool EditProduct(string id, Product updatedProduct)
         {
             var product = products.Find(p => p.ProductID == id);
+
             if (product != null)
             {
                 product.ProductName = updatedProduct.ProductName;
@@ -28,12 +29,14 @@ namespace ProductManagement
                 product.ExpiryDate = updatedProduct.ExpiryDate;
                 return true;
             }
+
             return false;
         }
 
         public bool RemoveProduct(string id)
         {
             var product = products.Find(p => p.ProductID == id);
+
             if (product != null)
             {
                 products.Remove(product);
@@ -63,6 +66,7 @@ namespace ProductManagement
             return products.Find(p => p.Origin == "Nhật Bản");
         }
         
+
         public List<Product> GetExpiredProducts()
         {
             return products.FindAll(p => p.ExpiryDate < DateTime.Now);
@@ -82,10 +86,12 @@ namespace ProductManagement
         {
             products.Clear();
         }
+
         public void RemoveAllExpiredProducts()
         {
             products.RemoveAll(p => p.ExpiryDate < DateTime.Now);
         }
+
         public bool ProductExists(string productId)
         {
             return products.Any(p => p.ProductID == productId);
